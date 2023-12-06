@@ -1,19 +1,21 @@
 CC = gcc
 CFLAGS = -Wall
 
-all: tcpclient tcpserver updclient updserver
+all: tcpclient tcpserver udpclient udpserver
 
 tcpclient: tcpclient.c
-    $(CC) $(CFLAGS) -o $@ $^
+        $(CC) $(CFLAGS) -o tcpclient tcpclient.c
 
 tcpserver: tcpserver.c
-    $(CC) $(CFLAGS) -o $@ $^
+        $(CC) $(CFLAGS) -o tcpserver tcpserver.c
 
-updclient: updclient.c
-    $(CC) $(CFLAGS) -o $@ $^
+udpclient: udpclient.c
+        $(CC) $(CFLAGS) -o udpclient udpclient.c
 
-updserver: updserver.c
-    $(CC) $(CFLAGS) -o $@ $^
+udpserver: udpserver.c
+        $(CC) $(CFLAGS) -o udpserver udpserver.c
+
+.PHONY: clean
 
 clean:
-    rm -f tcpclient tcpserver updclient updserver
+        rm -f tcpclient tcpserver udpclient udpserver
